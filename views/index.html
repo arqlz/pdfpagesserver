@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="./dist/pdf.js"></script>
+
+    <style>
+       body, html, #core {
+         margin: 0;
+         height: 100%;
+       }
+       a {
+         text-decoration: none;
+         color: inherit;
+       }
+       .editor button {
+         height: 35px;
+         border: none;
+         background-color: #ed0252;
+         color: #fff;
+       }
+       .editor button:active {
+         background-color: #fad220;
+        transition-duration: 0.2s;
+
+       }
+      .page {
+        background-color: white;
+        padding: 10px;
+        border: solid #e5e5e5 1px;
+        margin: 11px;
+        filter: opacity(0.9);
+        transition-duration: 0.2s;
+      }
+      .page:hover {
+        filter: opacity(1);
+        border: solid #aaa 1px;
+        box-shadow: 0px 0px 12px rgb(0 0 0 / 18%);
+        transform: translateY(-5px);
+      }
+      .page::-moz-drag-over {
+        border: solid #ff0000 1px;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .center {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .bold {
+        font-weight: 600;
+      }
+      .flex {
+        flex:1
+      }
+      .deletebutton {
+        position: relative;
+        width: 30px;
+        height: 30px;
+      }
+      .main {
+         flex-wrap: nowrap;
+         height: 100%;
+      }
+      .sidebar {
+        overflow: hidden;
+        width: 200px;
+        background-color: #313a46;
+        transform: translateX(0px);
+        animation-name: sidebar_show;
+        animation-duration: 0.3s;
+        color: #ffffff;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+      }
+      @keyframes sidebar_hide {
+        0% {
+          transform: translateX(0px);
+          width: 200px;
+        } 
+        100% {
+          transform: translateX(-200px);
+          width: 0px;
+        }
+      }
+      @keyframes sidebar_show {
+        0% {
+          transform: translateX(-200px);
+          width: 0px;
+        } 
+        100% {
+          transform: translateX(0px);
+          width: 200px;
+        }
+      }
+
+
+      .sidebarhide {
+        transform: translateX(-200px);
+        width: 0px;
+        animation-name: sidebar_hide;
+        animation-duration: 0.3s;
+      }
+
+
+      @keyframes button_flash {
+        from {
+          background-color: #00000033;
+          color: #ffffff;
+        }
+        to {
+          background-color: #ffffffaa;
+          color: #313a46;
+        }
+      }
+
+      .sidebar .button {
+        background-color: #00000033;       
+      }
+      .sidebar .button:hover {
+        background: #ffffffaa;
+        color: #313a46;
+        animation-name: button_flash;
+        animation-duration: 0.3s;
+      }
+      .item img {
+        object-fit: cover;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .instrucciones {
+        text-align: left;
+        font-style: italic;
+      }
+      .instrucciones li {
+        padding: 15px;
+      }
+      .instrucciones ol {
+        padding-left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="core"></div>
+  </body>
+</html>
+
+
+<script src="./dist/app.js"></script>
