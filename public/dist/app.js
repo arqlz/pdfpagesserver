@@ -376,7 +376,6 @@ exports.abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 async function getThumbnails(path = "../pdf/test.pdf") {
   return new Promise((resolve, reject) => {
     exports.current_code++;
-    console.log(exports.abc[exports.current_code - 1]);
     var imagenes = [];
     pdfjsLib.getDocument(path).promise.then(async doc => {
       var paginas = doc.numPages;
@@ -401,6 +400,10 @@ async function getThumbnails(path = "../pdf/test.pdf") {
         });
       }
       resolve(imagenes);
+    }).catch(err => {
+      console.error(err);
+      alert(`Error, uno de los archivos no es un documento PDF valido`);
+      resolve([]);
     });
   });
 }

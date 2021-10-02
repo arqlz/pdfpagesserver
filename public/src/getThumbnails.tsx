@@ -8,7 +8,6 @@ export async function getThumbnails(path: string | ArrayBuffer = "../pdf/test.pd
     return new Promise<{ data: string; id: any; page_number: number; }[]>((resolve, reject) => {
 
         current_code++;
-        console.log(abc[current_code - 1]);
         var imagenes = [];
         pdfjsLib.getDocument(path as any).promise.then(async (doc) => {
 
@@ -29,6 +28,10 @@ export async function getThumbnails(path: string | ArrayBuffer = "../pdf/test.pd
 
 
             resolve(imagenes);
+        }).catch(err => {
+            console.error(err)
+            alert(`Error, uno de los archivos no es un documento PDF valido`)
+            resolve([])
         });
     });
 }
