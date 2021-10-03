@@ -1,7 +1,7 @@
 {
   "name": "pdfpagesserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "Herramienta para cortar, unir y reordenar documentos pdf",
   "main": "index.js",  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
